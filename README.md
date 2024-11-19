@@ -39,11 +39,10 @@ suivant votre version de docker.
 ### Front 
 
 Le module front implémente une webapp en angular qui permet de contacter un déploiement 
-des applications de data stream sur factory. 
-Le VPN Norsys est nécessaire pour la communication entre le front et les applications de data stream. 
+des applications de data stream. 
 
-Si vous souhaitez deployer vos propres conteneurs et utiliser cette webapp pour les contacter, vous devrez modifier 
-La classe HomeComponent du module front pour y renseigner les adresses de vos conteneurs.
+Pour exploiter cette interface il est nécéssaire de renseigner les urls des applications de data stream dans 
+le fichier `src/app/home/home.component.ts` du module front.
 
 ### Gatling
 
