@@ -1,0 +1,52 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+/* Utilisation de Flexbox pour aligner le contenu */
+.selection-area, .counter-area {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px; /* Espace entre les éléments */
+  margin-bottom: 20px;
+}
+
+/* Style des toggle buttons */
+mat-slide-toggle {
+  margin-right: 10px;
+}
+
+/* Style du bouton Go */
+button {
+  margin-top: 20px;
+}
+
+/* Style du compteur */
+.counter-area {
+  align-items: center;
+}
+
+/* Style des boutons d'incrémentation et de décrémentation */
+button[mat-icon-button] {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Style de l'affichage du compteur */
+.counter-area span {
+  margin: 0 20px;
+  font-size: 1.5em;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Réactivité pour les petits écrans */
+@media (max-width: 768px) {
+  .selection-area, .counter-area {
+    flex-direction: column;
+  }
+}

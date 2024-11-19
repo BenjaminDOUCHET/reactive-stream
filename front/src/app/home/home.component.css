@@ -1,0 +1,70 @@
+/* Style général du conteneur */
+:host {
+  display: block;
+  padding: 20px;
+}
+
+/* Style des toggle buttons */
+mat-slide-toggle {
+  margin-bottom: 16px; /* Espace entre les toggle buttons */
+  width: 100%; /* Les toggle buttons prennent toute la largeur */
+}
+
+/* Style du bouton Go */
+button[mat-raised-button] {
+  margin-top: 20px; /* Espace au-dessus du bouton Go */
+  display: block; /* Fait du bouton un block pour centrer */
+  width: 100%; /* Le bouton prend toute la largeur */
+}
+
+/* Style du compteur */
+.counter-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; /* Espace au-dessus de la zone du compteur */
+}
+
+/* Style des boutons d'incrémentation et de décrémentation */
+button[mat-icon-button] {
+  margin: 0 10px;
+}
+
+
+.counter-area span {
+  font-size: 1.5em; /* Taille du texte pour le compteur */
+  margin: 0 10px; /* Espace horizontal autour du texte du compteur */
+  min-width: 50px; /* Largeur minimale pour garder le texte centré */
+  display: inline-block; /* Pour permettre le centrage du texte */
+  text-align: center; /* Centre le texte dans le span */
+}
+mat-card {
+  margin-bottom: 20px; /* Espace entre les cartes */
+}
+
+mat-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style de la table */
+mat-table {
+  width: 100%;
+  max-height: 500px;
+  overflow-x: auto;
+  overflow-y:auto;
+  display: block;
+}
+
+/* Style de la zone des boutons */
+.button-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Style du bouton d'export */
+button[mat-raised-button] {
+  margin-top: 20px;
+}

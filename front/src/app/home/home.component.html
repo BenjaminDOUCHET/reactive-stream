@@ -1,0 +1,63 @@
+<div *ngFor="let option of options">
+  <mat-card>
+    <mat-card-content>
+      <mat-slide-toggle color="primary" [(ngModel)]="selectedOptions[option.name]">
+        {{ option.name }}
+      </mat-slide-toggle>
+      <div *ngIf="selectedOptions[option.name]">
+        <p>Temps de téléchargement : {{ option.timer }} s</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<button mat-raised-button color="primary" (click)="go()">Lancer une mesure !</button>
+<button mat-raised-button color="primary" (click)="dlInTab()">télécharger !</button>
+
+
+<div class="counter-area">
+  <button mat-icon-button (click)="decrement()">
+    <mat-icon>remove</mat-icon>
+  </button>
+  <span>{{ delay }} ms/item</span>
+  <button mat-icon-button (click)="increment()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<div class="button-area">
+  <button mat-raised-button color="primary" (click)="exportCSV()">Exporter mesures en CSV</button>
+</div>
+
+
+<!-- Utilisation de Angular Material Table -->
+<mat-table [dataSource]="results" class="mat-elevation-z8">
+
+  <!-- Définition des colonnes -->
+  <ng-container matColumnDef="delay">
+    <mat-header-cell *matHeaderCellDef> Delay </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.delay}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="akkaStream">
+    <mat-header-cell *matHeaderCellDef> Akka Stream </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.akkaStream}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="nodeJS">
+    <mat-header-cell *matHeaderCellDef> NodeJS </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.rxJS}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="springReactor">
+    <mat-header-cell *matHeaderCellDef> Spring Reactor </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.springReactor}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="classicDownload">
+    <mat-header-cell *matHeaderCellDef> Spring classic download </mat-header-cell>
+    <mat-cell *matCellDef="let result"> {{result.classicDownload}} </mat-cell>
+  </ng-container>
+
+  <!-- En-tête et lignes du tableau -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+
+

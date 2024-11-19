@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:5.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./scripts/initInventory.js:/docker-entrypoint-initdb.d/initInventory.js
+  nodejs-stream:
+    build:
+      context: ./nodejs-stream
+    ports:
+      - "9090:9090"
+    depends_on:
+      - mongodb
+    environment:
+      PORT: 9090
+  spring-reactor-app:
+    build: ./spring-reactor
+    ports:
+      - "8585:8585"
+    depends_on:
+      - mongodb
+  spring-classic-app:
+    build: ./classic
+    ports:
+      - "8383:8383"
+    depends_on:
+      - mongodb
+  akka-stream-app:
+    build:
+      context: ./akka-stream
+    ports:
+      - "9595:9595"
+    environment:
+      SERVER_HOST: "0.0.0.0"
+      SERVER_PORT: "9595"
+    depends_on:
+      - mongodb

@@ -1,0 +1,14 @@
+/akka-stream/project/
+/akka-stream/.idea/
+/akka-stream/target/
+/gatling/project/
+/gatling/target/
+/nodejs-stream/node_modules/
+/tmp/
+/target/
+/project/
+/tmp/
+.idea/
+*.bsp
+.mvn/
+/gatling/.idea/
